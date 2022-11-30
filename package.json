@@ -63,7 +63,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "pre-deploy": "npx rollup -c",
-    "deploy": "npm publish dist --access=public",
+    "deploy": "npm publish dist",
     "eslint": "npx eslint ./src",
     "test:cypress": "npx cypress open",
     "run:all:tests": "npx cypress run --headless --quiet --browser firefox -s 'cypress/integration/tests/**/*.spec.ts'",
@@ -91,5 +91,8 @@
   ],
   "dependencies": {
     "tslib": "^2.3.1"
+  },
+  "publishConfig": {
+    "@christiedigital:registry": "https://npm.pkg.github.com"
   }
 }

@@ -19,6 +19,7 @@ export function handlePaste(event: ClipboardEvent, state: State): State {
       document.body.firstElementChild?.getAttribute("data-reactgrid") ===
       "reactgrid-content";
     if (
+      !(state.props?.pastePlainTextOnly) &&
       hasReactGridAttribute &&
       document.body.firstElementChild?.firstElementChild
     ) {
@@ -44,6 +45,10 @@ export function handlePaste(event: ClipboardEvent, state: State): State {
             .split("\t")
             .map((t) => ({ type: "text", text: t, value: parseFloat(t) }))
         );
+      if (pastedRows[pastedRows.length - 1].length === 1 && pastedRows[pastedRows.length - 1][0].text === '') {
+        // sometimes excel likes to leave a trailing newline
+        pastedRows.pop();
+      }
     }
     event.preventDefault();
     return { ...pasteData(state, pastedRows) };

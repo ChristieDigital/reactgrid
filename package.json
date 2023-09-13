@@ -1,5 +1,5 @@
 {
-  "name": "@silevis/reactgrid",
+  "name": "@christiedigital/reactgrid",
   "description": "Add spreadsheet-like behavior to your React app.",
   "version": "4.1.1",
   "homepage": "https://reactgrid.com",
@@ -61,7 +61,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "pre-deploy": "npx rollup -c",
-    "deploy": "npm publish dist --access=public",
+    "deploy": "npm publish dist",
     "eslint": "npx eslint ./src",
     "test:cypress": "npx cypress open",
     "run:all:tests": "npx cypress run --headless --quiet --browser firefox -s 'cypress/integration/tests/**/*.spec.ts'",
@@ -90,5 +90,8 @@
   "dependencies": {
     "sass": "^1.62.1",
     "tslib": "^2.5.2"
+  },
+  "publishConfig": {
+    "@christiedigital:registry": "https://npm.pkg.github.com"
   }
 }
